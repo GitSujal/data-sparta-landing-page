@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+/* Custom styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section backgrounds */
+.section-light {
+  @apply bg-white;
+}
+
+.section-dark {
+  @apply bg-gray-50;
+}
+
+.section-gradient {
+  @apply bg-gradient-to-r from-primary to-primary/80;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white shadow-lg hover:shadow-xl transition-shadow;
+}
+
+/* Text styles */
+.text-primary-content {
+  @apply text-gray-900;
+}
+
+.text-secondary-content {
+  @apply text-gray-600;
+}
+
+/* Form styles */
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea,
+select {
+  @apply bg-white border-gray-300 text-gray-900 focus:border-primary focus:ring-primary rounded-md;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary/90;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary hover:bg-gray-50;
+}
+
+/* Hero section overlay */
+.hero-overlay {
+  @apply absolute inset-0 bg-black/30;
+}
+
+/* Card and container backgrounds */
+.bg-card {
+  @apply bg-white;
+}
+
+.bg-container {
+  @apply bg-gray-50;
+}
+
+/* Dividers */
+.divider {
+  @apply border-gray-200;
+}
+
+/* Navigation */
+.nav-link {
+  @apply text-gray-700 hover:text-primary;
+}
+
+.nav-link-active {
+  @apply text-primary;
+}
+
+/* Footer */
+.footer {
+  @apply bg-white border-t border-gray-200;
+}
+
+/* Accordion */
+.accordion {
+  @apply bg-white border border-gray-200;
+}
+
+/* Timeline */
+.timeline-line {
+  @apply bg-gray-200;
+}
+
+/* Testimonials */
+.testimonial-card {
+  @apply bg-white shadow-lg;
+}
+
+/* Case studies */
+.case-study-card {
+  @apply bg-white shadow-lg hover:shadow-xl transition-shadow;
+}
+
+/* FAQ sections */
+.faq-section {
+  @apply bg-gray-50;
+}
+
+/* Contact form */
+.contact-form {
+  @apply bg-white;
+}
+
+.contact-sidebar {
+  @apply bg-gray-50;
+}
