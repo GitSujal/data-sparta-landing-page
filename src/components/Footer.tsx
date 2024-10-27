@@ -69,9 +69,9 @@ export function Footer() {
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">Contact Us</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   <li>
-                    <a href="mailto:contact@datasparta.com.au" className="text-sm leading-6 text-gray-600 hover:text-primary flex items-center">
+                    <a href="mailto:contact@datasparta.com" className="text-sm leading-6 text-gray-600 hover:text-primary flex items-center">
                       <Mail className="h-4 w-4 mr-2" />
-                      contact@datasparta.com.au
+                      contact@datasparta.com
                     </a>
                   </li>
                   <li>

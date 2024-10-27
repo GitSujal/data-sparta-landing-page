@@ -6,11 +6,11 @@ export function ContactInfo() {
     <ul role="list" className="mt-6 space-y-4">
       <li>
         <a
-          href="mailto:contact@datasparta.com.au"
+          href="mailto:contact@datasparta.com"
           className="text-sm leading-6 text-gray-600 hover:text-primary flex items-center"
         >
           <Mail className="h-4 w-4 mr-2" />
-          contact@datasparta.com.au
+          contact@datasparta.com
         </a>
       </li>
       <li>

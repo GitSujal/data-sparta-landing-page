@@ -53,7 +53,7 @@ export function Home() {
                 "@type": "ContactPoint",
                 "telephone": "+61410677503",
                 "contactType": "customer service",
-                "email": "contact@datasparta.com.au"
+                "email": "contact@datasparta.com"
               },
               "sameAs": [
                 "https://www.linkedin.com/company/data-sparta"

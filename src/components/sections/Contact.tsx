@@ -21,10 +21,10 @@ export function Contact() {
                   <Mail className="h-6 w-6 text-primary" aria-hidden="true" />
                   <dd className="ml-3">
                     <a
-                      href="mailto:contact@datasparta.com.au"
+                      href="mailto:contact@datasparta.com"
                       className="text-lg text-gray-900 hover:text-primary transition-colors"
                     >
-                      contact@datasparta.com.au
+                      contact@datasparta.com
                     </a>
                   </dd>
                 </div>
@@ -53,7 +53,7 @@ export function Contact() {
 
               <div className="mt-8 text-center">
                 <a
-                  href="mailto:contact@datasparta.com.au"
+                  href="mailto:contact@datasparta.com"
                   className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
                 >
                   Send us an Email
