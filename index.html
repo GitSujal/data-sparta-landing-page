@@ -15,6 +15,13 @@
       <select name="service"></select>
       <textarea name="message"></textarea>
     </form>
+
+    <!-- Hidden form for expression of interest -->
+    <form name="expression-of-interest" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="file" name="resume" />
+    </form>
     
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
