@@ -121,12 +121,16 @@ export function Careers() {
     e.preventDefault();
     setIsSubmitting(true);
     setFormStatus({ type: null, message: '' });
-    const formData = new FormData(e.currentTarget);
-
+    
     try {
-      const response = await fetch('/', {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      // Submit the form data to Netlify
+      const response = await fetch(form.action, {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: { "Accept": "application/json" }
       });
 
       if (response.ok) {
@@ -134,17 +138,15 @@ export function Careers() {
           type: 'success',
           message: 'Thank you for your interest! Your application has been submitted successfully.'
         });
-        e.currentTarget.reset();
+        form.reset();
       } else {
-        setFormStatus({
-          type: 'error',
-          message: 'Failed to submit the form. Please try again later.'
-        });
+        throw new Error('Form submission failed');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setFormStatus({
         type: 'error',
-        message: 'An error occurred while submitting the form. Please try again later.'
+        message: 'Failed to submit the form. Please try again later.'
       });
     } finally {
       setIsSubmitting(false);
@@ -154,6 +156,8 @@ export function Careers() {
   const toggleStep = (index: number) => {
     setExpandedStep(expandedStep === index ? null : index);
   };
+
+  // ... (rest of the component remains the same) ...
 
   return (
     <div className="flex flex-col">
@@ -238,7 +242,6 @@ export function Careers() {
                   While we may not have specific openings at the moment, we're always eager to connect with talented professionals who align with our vision. If you're interested in joining our team, please don't hesitate to reach out and introduce yourself!
                 </p>
               </div>
-              {/* You can add a list of open positions here when available */}
               <div className="bg-gray-50 rounded-lg p-8 text-center">
                 <p className="text-lg text-gray-600">
                   No specific positions are currently open, but we're always interested in meeting talented individuals who are passionate about data.
@@ -249,38 +252,39 @@ export function Careers() {
               </div>
             </div>
 
-            {/* Expression of Interest Form */}
-            <div id="expression-of-interest">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">Express Your Interest</h2>
-                <p className="mt-4 text-lg text-gray-500">
-                  Take the first step towards becoming a Data Spartan by submitting your expression of interest.
-                </p>
-              </div>
-              <form
-                name="expression-of-interest"
-                method="POST"
-                onSubmit={handleSubmit}
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                encType="multipart/form-data"
-                className="space-y-6 bg-white rounded-lg shadow-lg p-8"
-              >
-                <input type="hidden" name="form-name" value="expression-of-interest" />
-                <input type="hidden" name="bot-field" />
-                <input type="hidden" name="subject" value="New Expression of Interest Submission" />
-                
-                {formStatus.type && (
-                  <div
-                    className={`p-4 rounded-md ${
-                      formStatus.type === 'success'
-                        ? 'bg-green-50 text-green-800'
-                        : 'bg-red-50 text-red-800'
-                    }`}
-                  >
-                    {formStatus.message}
-                  </div>
-                )}
+      {/* Expression of Interest Form */}
+      <div id="expression-of-interest">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">Express Your Interest</h2>
+          <p className="mt-4 text-lg text-gray-500">
+            Take the first step towards becoming a Data Spartan by submitting your expression of interest.
+          </p>
+        </div>
+        <form
+          name="expression-of-interest"
+          method="POST"
+          action="/"
+          onSubmit={handleSubmit}
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          encType="multipart/form-data"
+          className="space-y-6 bg-white rounded-lg shadow-lg p-8"
+        >
+          <input type="hidden" name="form-name" value="expression-of-interest" />
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="subject" value="New Expression of Interest Submission" />
+          
+          {formStatus.type && (
+            <div
+              className={`p-4 rounded-md ${
+                formStatus.type === 'success'
+                  ? 'bg-green-50 text-green-800'
+                  : 'bg-red-50 text-red-800'
+              }`}
+            >
+              {formStatus.message}
+            </div>
+          )}
 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -343,8 +347,8 @@ export function Careers() {
                     {isSubmitting ? 'Submitting...' : 'Submit Application'}
                   </button>
                 </div>
-              </form>
-            </div>
+        </form>
+      </div>
           </div>
         </div>
       </section>
