@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@nextui-org/react";
 import { 
   Brain, 
   Lightbulb, 
@@ -112,7 +110,6 @@ const applicationSteps = [
 ];
 
 export function Careers() {
-  const navigate = useNavigate();
   const [expandedStep, setExpandedStep] = useState<number | null>(null);
   const [formStatus, setFormStatus] = useState<{
     type: 'success' | 'error' | null;
@@ -137,9 +134,7 @@ export function Careers() {
           type: 'success',
           message: 'Thank you for your interest! Your application has been submitted successfully.'
         });
-        setTimeout(() => {
-          navigate('/success?form=expression-of-interest');
-        }, 2000);
+        e.currentTarget.reset();
       } else {
         setFormStatus({
           type: 'error',

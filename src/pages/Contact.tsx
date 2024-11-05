@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const services = [
   "Data Platform",
@@ -10,17 +9,20 @@ const services = [
 ];
 
 export function Contact() {
-  const navigate = useNavigate();
+  const [formStatus, setFormStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: null, message: '' });
     const form = e.currentTarget;
 
     try {
-      // Create a FormData instance
       const formData = new FormData(form);
-
-      // Submit the form data to Netlify
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -28,17 +30,24 @@ export function Contact() {
       });
 
       if (response.ok) {
-        // Show success message
-        alert("Thank you! Your message has been sent successfully.");
-        // Navigate to homepage
-        navigate("/");
+        setFormStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully.'
+        });
+        form.reset();
       } else {
-        console.error("Form submission failed");
-        alert("Sorry, there was an error submitting your form. Please try again.");
+        setFormStatus({
+          type: 'error',
+          message: 'Failed to send message. Please try again later.'
+        });
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Sorry, there was an error submitting your form. Please try again.");
+      setFormStatus({
+        type: 'error',
+        message: 'An error occurred while sending your message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -122,6 +131,18 @@ export function Contact() {
                     Don't fill this out if you're human: <input name="bot-field" />
                   </label>
                 </p>
+
+                {formStatus.type && (
+                  <div
+                    className={`p-4 rounded-md ${
+                      formStatus.type === 'success'
+                        ? 'bg-green-50 text-green-800'
+                        : 'bg-red-50 text-red-800'
+                    }`}
+                  >
+                    {formStatus.message}
+                  </div>
+                )}
                 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -196,9 +217,14 @@ export function Contact() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    disabled={isSubmitting}
+                    className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+                      isSubmitting
+                        ? 'bg-primary/70 cursor-not-allowed'
+                        : 'bg-primary hover:bg-primary/90'
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary`}
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </div>
               </form>
