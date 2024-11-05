@@ -28,13 +28,17 @@ export function Contact() {
       });
 
       if (response.ok) {
-        // If submission is successful, navigate to success page
-        navigate("/success");
+        // Show success message
+        alert("Thank you! Your message has been sent successfully.");
+        // Navigate to homepage
+        navigate("/");
       } else {
         console.error("Form submission failed");
+        alert("Sorry, there was an error submitting your form. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      alert("Sorry, there was an error submitting your form. Please try again.");
     }
   };
 
