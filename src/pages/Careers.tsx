@@ -114,28 +114,45 @@ const applicationSteps = [
 export function Careers() {
   const navigate = useNavigate();
   const [expandedStep, setExpandedStep] = useState<number | null>(null);
+  const [formStatus, setFormStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: null, message: '' });
     const formData = new FormData(e.currentTarget);
 
     try {
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'expression-of-interest',
-          ...Object.fromEntries(formData)
-        }).toString()
+        body: formData
       });
 
       if (response.ok) {
-        navigate('/success?form=expression-of-interest');
+        setFormStatus({
+          type: 'success',
+          message: 'Thank you for your interest! Your application has been submitted successfully.'
+        });
+        setTimeout(() => {
+          navigate('/success?form=expression-of-interest');
+        }, 2000);
       } else {
-        console.error('Form submission failed');
+        setFormStatus({
+          type: 'error',
+          message: 'Failed to submit the form. Please try again later.'
+        });
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      setFormStatus({
+        type: 'error',
+        message: 'An error occurred while submitting the form. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -250,12 +267,26 @@ export function Careers() {
                 method="POST"
                 onSubmit={handleSubmit}
                 data-netlify="true"
+                netlify-honeypot="bot-field"
                 encType="multipart/form-data"
                 className="space-y-6 bg-white rounded-lg shadow-lg p-8"
               >
                 <input type="hidden" name="form-name" value="expression-of-interest" />
+                <input type="hidden" name="bot-field" />
                 <input type="hidden" name="subject" value="New Expression of Interest Submission" />
                 
+                {formStatus.type && (
+                  <div
+                    className={`p-4 rounded-md ${
+                      formStatus.type === 'success'
+                        ? 'bg-green-50 text-green-800'
+                        : 'bg-red-50 text-red-800'
+                    }`}
+                  >
+                    {formStatus.message}
+                  </div>
+                )}
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                     Full Name *
@@ -292,7 +323,6 @@ export function Careers() {
                     id="resume"
                     required
                     accept=".pdf,.doc,.docx"
-                    max-size="3000000"
                     className="mt-1 block w-full text-sm text-gray-500
                       file:mr-4 file:py-2 file:px-4
                       file:rounded-md file:border-0
@@ -308,9 +338,14 @@ export function Careers() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    disabled={isSubmitting}
+                    className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+                      isSubmitting
+                        ? 'bg-primary/70 cursor-not-allowed'
+                        : 'bg-primary hover:bg-primary/90'
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary`}
                   >
-                    Submit Application
+                    {isSubmitting ? 'Submitting...' : 'Submit Application'}
                   </button>
                 </div>
               </form>
