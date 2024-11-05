@@ -8,6 +8,9 @@ import { Services } from "../../pages/Services";
 import { SuccessStories } from "../../pages/SuccessStories";
 import { HowItWorks } from "../../pages/HowItWorks";
 import { FAQ } from "../../pages/FAQ";
+import { Careers } from "../../pages/Careers";
+import { Contact } from "../../pages/Contact";
+import { Success } from "../../pages/Success";
 
 export function Layout() {
   return (
@@ -21,6 +24,8 @@ export function Layout() {
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />

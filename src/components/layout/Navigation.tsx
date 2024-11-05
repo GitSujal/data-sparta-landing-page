@@ -1,13 +1,33 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Success Stories", href: "/success-stories" },
-  { name: "How It Works", href: "/how-it-works" },
-  { name: "FAQs", href: "/faq" },
+  { 
+    name: "Home", 
+    href: "/" 
+  },
+  {
+    name: "Services",
+    href: "/services",
+    dropdown: [
+      { name: "Data Platform", href: "/services#data-platform" },
+      { name: "Analytics", href: "/services#analytics" },
+      { name: "Organization Training", href: "/services#org-training" },
+      { name: "Individual Training", href: "/services#individual-training" },
+      { name: "Success Stories", href: "/success-stories" }
+    ]
+  },
+  {
+    name: "About",
+    href: "/about",
+    dropdown: [
+      { name: "About Us", href: "/about" },
+      { name: "FAQs", href: "/faq" },
+      { name: "Contact", href: "/contact" },
+      { name: "Careers", href: "/careers" }
+    ]
+  }
 ];
 
 interface NavigationProps {
@@ -36,30 +56,82 @@ export function Navigation({ onContactClick, mobile = false, onClose }: Navigati
     ? "text-gray-700 hover:bg-gray-50 hover:text-primary"
     : "text-gray-700 hover:text-primary";
 
+  const renderDropdown = (item: any) => (
+    <div className="group relative">
+      <button
+        className={`flex items-center space-x-1 ${baseStyles} ${
+          isActive(item.href) ? activeStyles : inactiveStyles
+        }`}
+      >
+        <span>{item.name}</span>
+        <ChevronDown className="h-4 w-4" />
+      </button>
+      <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+        <div className="py-1" role="menu" aria-orientation="vertical">
+          {item.dropdown.map((subItem: any) => (
+            <Link
+              key={subItem.name}
+              to={subItem.href}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary"
+              onClick={onClose}
+            >
+              {subItem.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderMobileDropdown = (item: any) => (
+    <div className="space-y-1">
+      <div
+        className={`${baseStyles} ${
+          isActive(item.href) ? activeStyles : inactiveStyles
+        }`}
+      >
+        {item.name}
+      </div>
+      <div className="pl-4 space-y-1">
+        {item.dropdown.map((subItem: any) => (
+          <Link
+            key={subItem.name}
+            to={subItem.href}
+            className={`${baseStyles} ${
+              isActive(subItem.href) ? activeStyles : inactiveStyles
+            }`}
+            onClick={onClose}
+          >
+            {subItem.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <>
       {navigation.map((item) => (
-        <Link
-          key={item.name}
-          to={item.href}
-          className={`${baseStyles} ${
-            isActive(item.href) ? activeStyles : inactiveStyles
-          }`}
-          onClick={onClose}
-        >
-          {item.name}
-        </Link>
+        <React.Fragment key={item.name}>
+          {item.dropdown ? (
+            mobile ? (
+              renderMobileDropdown(item)
+            ) : (
+              renderDropdown(item)
+            )
+          ) : (
+            <Link
+              to={item.href}
+              className={`${baseStyles} ${
+                isActive(item.href) ? activeStyles : inactiveStyles
+              }`}
+              onClick={onClose}
+            >
+              {item.name}
+            </Link>
+          )}
+        </React.Fragment>
       ))}
-      <a
-        href="#contact"
-        onClick={(e) => {
-          onContactClick(e);
-          onClose?.();
-        }}
-        className={`${baseStyles} ${inactiveStyles}`}
-      >
-        Contact
-      </a>
       <a
         href="https://calendly.com/dataprofessionacademy/30min"
         target="_blank"

@@ -27,6 +27,11 @@ export function FooterLinks() {
           </Link>
         </li>
         <li>
+          <Link to="/careers" className="text-sm leading-6 text-gray-600 hover:text-primary">
+            Careers
+          </Link>
+        </li>
+        <li>
           <Link to="/faq" className="text-sm leading-6 text-gray-600 hover:text-primary">
             FAQ
           </Link>
