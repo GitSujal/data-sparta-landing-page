@@ -24,7 +24,7 @@ export function HowItWorks() {
       </section>
 
       {/* Quick Navigation */}
-      <section className="py-8 bg-gray-50 border-b sticky top-16 z-40 backdrop-blur-lg bg-gray-50/80">
+      <section className="py-8 bg-background/80 border-b border-divider sticky top-16 z-40 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex flex-wrap justify-center gap-4">
             {services.map((service) => (
@@ -34,7 +34,7 @@ export function HowItWorks() {
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   hash === service.id
                     ? "bg-primary text-white"
-                    : "bg-white text-gray-600 hover:bg-gray-100"
+                    : "bg-content1 text-foreground hover:bg-content2"
                 }`}
               >
                 {service.title}
@@ -45,11 +45,11 @@ export function HowItWorks() {
       </section>
 
       {/* Service Sections */}
-      {services.map((service) => (
+      {services.map((service, index) => (
         <section
           key={service.id}
           id={service.id}
-          className="py-24 bg-white scroll-mt-32"
+          className={`py-24 ${index % 2 === 0 ? 'bg-background' : 'bg-content2'} scroll-mt-32`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -58,13 +58,13 @@ export function HowItWorks() {
                   <service.icon className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
-              <p className="mt-4 text-lg text-gray-500">{service.description}</p>
+              <h2 className="text-3xl font-bold text-foreground">{service.title}</h2>
+              <p className="mt-4 text-lg text-foreground/60">{service.description}</p>
             </div>
 
             <div className="space-y-8">
-              {service.steps.map((step, index) => (
-                <ServiceStep key={step.title} step={step} index={index} />
+              {service.steps.map((step, stepIndex) => (
+                <ServiceStep key={step.title} step={step} index={stepIndex} />
               ))}
             </div>
 
@@ -73,7 +73,7 @@ export function HowItWorks() {
                 <Button
                   color="primary"
                   size="lg"
-                  className="bg-primary text-white"
+                  className="bg-primary text-white hover:bg-primary/90"
                 >
                   Learn More About {service.title}
                 </Button>
@@ -91,10 +91,10 @@ export function HowItWorks() {
             Transform your business with our data solutions today.
           </p>
           <div className="mt-8">
-            <Link to="/#contact">
+            <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-white text-primary"
+                className="bg-white text-primary hover:bg-gray-50"
               >
                 Schedule a Free Consultation
               </Button>

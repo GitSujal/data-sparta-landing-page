@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 export function AboutSummary() {
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id="about" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">About Data Sparta</h2>
-            <p className="mt-4 text-lg text-gray-500">
+            <h2 className="text-3xl font-bold text-foreground">About Data Sparta</h2>
+            <p className="mt-4 text-lg text-foreground/60">
               Founded in August 2023 by Sujal Dhungana, Data Sparta empowers SMBs with tailored data solutions that drive insights, streamline operations, and enhance decision-making.
             </p>
             <div className="mt-6">

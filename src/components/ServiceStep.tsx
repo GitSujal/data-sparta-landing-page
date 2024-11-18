@@ -14,19 +14,19 @@ interface ServiceStepProps {
 
 export function ServiceStep({ step, index }: ServiceStepProps) {
   return (
-    <Card className="w-full">
+    <Card className="w-full bg-content1">
       <CardHeader className="flex gap-3">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
           <step.icon className="h-6 w-6" />
         </div>
         <div className="flex flex-col">
-          <p className="text-md font-semibold">Step {index + 1}</p>
-          <h4 className="text-xl font-bold">{step.title}</h4>
+          <p className="text-md font-semibold text-foreground/80">Step {index + 1}</p>
+          <h4 className="text-xl font-bold text-foreground">{step.title}</h4>
         </div>
       </CardHeader>
-      <Divider />
+      <Divider className="bg-divider" />
       <CardBody>
-        <p className="text-gray-600 mb-4">{step.description}</p>
+        <p className="text-foreground/80 mb-4">{step.description}</p>
         <div className="flex flex-wrap gap-2">
           {step.details.map((detail, i) => (
             <Chip

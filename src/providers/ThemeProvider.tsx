@@ -1,30 +1,28 @@
 import React, { createContext, useContext, ReactNode } from "react";
 import { NextUIProvider } from "@nextui-org/react";
-import { useTheme } from "../hooks/useTheme";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 interface ThemeContextType {
-  isDark: boolean;
-  toggleTheme: () => void;
+  theme: string;
+  setTheme: (theme: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const themeState = useTheme();
-
   return (
-    <ThemeContext.Provider value={themeState}>
+    <NextThemesProvider attribute="class" defaultTheme="light">
       <NextUIProvider>
         {children}
       </NextUIProvider>
-    </ThemeContext.Provider>
+    </NextThemesProvider>
   );
 }
 
-export function useThemeContext() {
+export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("useThemeContext must be used within a ThemeProvider");
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 }

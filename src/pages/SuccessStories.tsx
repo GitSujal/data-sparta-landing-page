@@ -87,7 +87,7 @@ const testimonials = [
   {
     name: "Sarah L.",
     role: "Operations Manager at Fashion Hub",
-    content: "Data Sparta's solutions have revolutionized the way we manage our inventory. The real-time insights have enabled us to make smarter decisions, and the impact on our sales has been phenomenal.",
+    content: "Data Sparta's solutions have revolutionized the way we manage our inventory. The real-time insights have been invaluable, leading to a 25% increase in sales.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
@@ -109,7 +109,14 @@ export function SuccessStories() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-r from-primary to-primary/80">
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
+            alt="Team collaboration"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary mix-blend-multiply opacity-90" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
             Driving Success Through Data
@@ -130,18 +137,18 @@ export function SuccessStories() {
       </section>
 
       {/* Introduction */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg text-gray-500">
+          <p className="text-lg text-foreground/60">
             At Data Sparta, we're proud to have partnered with numerous small and medium-sized businesses across various industries to unlock the power of their data. Our customized solutions have helped our clients overcome challenges, streamline operations, and achieve significant growth. Below are some of the success stories that highlight the impact of our services.
           </p>
         </div>
       </section>
 
       {/* Case Studies */}
-      <section id="case-studies" className="py-16 bg-gray-50">
+      <section id="case-studies" className="py-16 bg-content2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-12">
             Case Studies
           </h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -153,9 +160,9 @@ export function SuccessStories() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-12">
             What Our Clients Say
           </h2>
           <TestimonialCarousel testimonials={testimonials} />

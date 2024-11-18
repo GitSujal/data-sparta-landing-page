@@ -23,7 +23,7 @@ const services = [
       "Enterprise-grade security and compliance",
     ],
     ctaText: "Request a Demo",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
   },
   {
     id: "analytics",
@@ -43,7 +43,7 @@ const services = [
       "No long-term staffing commitments",
     ],
     ctaText: "Discuss Your Needs",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
   },
   {
     id: "org-training",
@@ -63,7 +63,7 @@ const services = [
       "Ongoing support and resources",
     ],
     ctaText: "Customize Training",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
   },
   {
     id: "individual-training",
@@ -83,7 +83,7 @@ const services = [
       "Job placement assistance",
     ],
     ctaText: "Explore Courses",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
   },
 ];
 
@@ -94,7 +94,7 @@ export function Services() {
       <ServicesOverview />
       
       {/* Services Grid */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-content2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service) => (
@@ -109,11 +109,11 @@ export function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white">Ready to Leverage the Power of Data?</h2>
           <p className="mt-4 text-xl text-white">
-            Whether you&apos;re looking for a managed data platform, expert analytics, or training programs, Data Sparta is here to help.
+            Whether you're looking for a managed data platform, expert analytics, or training programs, Data Sparta is here to help.
           </p>
           <div className="mt-8">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:text-lg"
             >
               Get Started Today

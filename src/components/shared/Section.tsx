@@ -4,13 +4,13 @@ interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
-  background?: "white" | "gray" | "primary";
+  background?: "default" | "secondary" | "primary";
 }
 
-export function Section({ children, className = "", id, background = "white" }: SectionProps) {
+export function Section({ children, className = "", id, background = "default" }: SectionProps) {
   const backgroundStyles = {
-    white: "bg-white",
-    gray: "bg-gray-50",
+    default: "bg-background",
+    secondary: "bg-content2",
     primary: "bg-primary",
   };
 

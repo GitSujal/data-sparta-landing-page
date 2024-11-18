@@ -24,37 +24,37 @@ export function ServiceCard({
   id,
 }: ServiceCardProps) {
   return (
-    <div className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+    <div className="bg-content1 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
       <div className="p-8">
         <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mx-auto">
           <Icon className="h-8 w-8 text-primary" />
         </div>
-        <h3 className="mt-6 text-2xl font-bold text-center text-primary-content">{title}</h3>
-        <p className="mt-4 text-secondary-content text-center">{description}</p>
+        <h3 className="mt-6 text-2xl font-bold text-center text-foreground">{title}</h3>
+        <p className="mt-4 text-foreground/60 text-center">{description}</p>
         
         <div className="mt-8">
-          <h4 className="text-lg font-semibold text-primary-content">Key Features</h4>
+          <h4 className="text-lg font-semibold text-foreground">Key Features</h4>
           <ul className="mt-4 space-y-3">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start">
                 <span className="flex-shrink-0 h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center">
                   <span className="h-2 w-2 rounded-full bg-primary" />
                 </span>
-                <span className="ml-3 text-secondary-content">{feature}</span>
+                <span className="ml-3 text-foreground/60">{feature}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <div className="mt-8">
-          <h4 className="text-lg font-semibold text-primary-content">Benefits</h4>
+          <h4 className="text-lg font-semibold text-foreground">Benefits</h4>
           <ul className="mt-4 space-y-3">
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-start">
                 <span className="flex-shrink-0 h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center">
                   <span className="h-2 w-2 rounded-full bg-primary" />
                 </span>
-                <span className="ml-3 text-secondary-content">{benefit}</span>
+                <span className="ml-3 text-foreground/60">{benefit}</span>
               </li>
             ))}
           </ul>

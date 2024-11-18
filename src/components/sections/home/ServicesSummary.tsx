@@ -31,11 +31,11 @@ const services = [
 
 export function ServicesSummary() {
   return (
-    <section id="services" className="py-24 bg-gray-50">
+    <section id="services" className="py-24 bg-content2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Our Services</h2>
-          <p className="mt-4 text-lg text-gray-500">
+          <h2 className="text-3xl font-bold text-foreground">Our Services</h2>
+          <p className="mt-4 text-lg text-foreground/60">
             Comprehensive data solutions tailored for your business needs
           </p>
         </div>
@@ -45,16 +45,16 @@ export function ServicesSummary() {
             <Link
               key={service.title}
               to={service.href}
-              className="group block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="group block bg-content1 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               <div className="p-6">
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 mx-auto group-hover:bg-primary/20 transition-colors">
                   <service.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="mt-4 text-xl font-semibold text-gray-900 text-center group-hover:text-primary transition-colors">
+                <h3 className="mt-4 text-xl font-semibold text-foreground text-center group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-gray-500 text-center">
+                <p className="mt-2 text-foreground/60 text-center">
                   {service.description}
                 </p>
                 <div className="mt-4 text-center">

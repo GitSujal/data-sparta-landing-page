@@ -49,12 +49,12 @@ export function Navigation({ onContactClick, mobile = false, onClose }: Navigati
     : "text-base font-medium transition-colors";
 
   const activeStyles = mobile
-    ? "text-primary bg-gray-50"
+    ? "text-primary bg-content2"
     : "text-primary";
 
   const inactiveStyles = mobile
-    ? "text-gray-700 hover:bg-gray-50 hover:text-primary"
-    : "text-gray-700 hover:text-primary";
+    ? "text-foreground hover:bg-content2 hover:text-primary"
+    : "text-foreground hover:text-primary";
 
   const renderDropdown = (item: any) => (
     <div className="group relative">
@@ -66,13 +66,13 @@ export function Navigation({ onContactClick, mobile = false, onClose }: Navigati
         <span>{item.name}</span>
         <ChevronDown className="h-4 w-4" />
       </button>
-      <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-content1 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
         <div className="py-1" role="menu" aria-orientation="vertical">
           {item.dropdown.map((subItem: any) => (
             <Link
               key={subItem.name}
               to={subItem.href}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary"
+              className="block px-4 py-2 text-sm text-foreground hover:bg-content2 hover:text-primary"
               onClick={onClose}
             >
               {subItem.name}
@@ -132,10 +132,8 @@ export function Navigation({ onContactClick, mobile = false, onClose }: Navigati
           )}
         </React.Fragment>
       ))}
-      <a
-        href="https://calendly.com/dataprofessionacademy/30min"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        to="/contact"
         className={
           mobile
             ? "block w-full text-center rounded-md bg-primary px-4 py-2 text-base font-medium text-white hover:bg-primary/90"
@@ -144,7 +142,7 @@ export function Navigation({ onContactClick, mobile = false, onClose }: Navigati
         onClick={onClose}
       >
         Schedule Consultation
-      </a>
+      </Link>
     </>
   );
 }

@@ -5,6 +5,14 @@
     <link rel="icon" type="image/png" href="https://lwfiles.mycourse.app/64e1593f6f801424e29f5705-public/1d5fd27821ece5e922916b2404eafcf8.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Sparta - Empowering SMBs with Data Solutions</title>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
   <body>
     <!-- A hidden form that Netlify uses to detect the form during build -->

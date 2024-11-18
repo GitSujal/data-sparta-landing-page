@@ -5,7 +5,7 @@
 /* Base styles */
 @layer base {
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-background text-foreground;
   }
 }
 
@@ -16,11 +16,11 @@ html {
 
 /* Section backgrounds */
 .section-light {
-  @apply bg-white;
+  @apply bg-background;
 }
 
 .section-dark {
-  @apply bg-gray-50;
+  @apply bg-content2;
 }
 
 .section-gradient {
@@ -29,16 +29,16 @@ html {
 
 /* Card styles */
 .card {
-  @apply bg-white shadow-lg hover:shadow-xl transition-shadow;
+  @apply bg-content1 shadow-lg hover:shadow-xl transition-shadow;
 }
 
 /* Text styles */
 .text-primary-content {
-  @apply text-gray-900;
+  @apply text-foreground;
 }
 
 .text-secondary-content {
-  @apply text-gray-600;
+  @apply text-foreground/60;
 }
 
 /* Form styles */
@@ -47,7 +47,7 @@ input[type='email'],
 input[type='tel'],
 textarea,
 select {
-  @apply bg-white border-gray-300 text-gray-900 focus:border-primary focus:ring-primary rounded-md;
+  @apply bg-content1 border-divider text-foreground focus:border-primary focus:ring-primary rounded-md;
 }
 
 /* Button styles */
@@ -56,7 +56,7 @@ select {
 }
 
 .btn-secondary {
-  @apply bg-white text-primary hover:bg-gray-50;
+  @apply bg-content1 text-primary hover:bg-content2;
 }
 
 /* Hero section overlay */
@@ -66,21 +66,21 @@ select {
 
 /* Card and container backgrounds */
 .bg-card {
-  @apply bg-white;
+  @apply bg-content1;
 }
 
 .bg-container {
-  @apply bg-gray-50;
+  @apply bg-content2;
 }
 
 /* Dividers */
 .divider {
-  @apply border-gray-200;
+  @apply border-divider;
 }
 
 /* Navigation */
 .nav-link {
-  @apply text-gray-700 hover:text-primary;
+  @apply text-foreground/70 hover:text-primary;
 }
 
 .nav-link-active {
@@ -89,39 +89,39 @@ select {
 
 /* Footer */
 .footer {
-  @apply bg-white border-t border-gray-200;
+  @apply bg-background border-t border-divider;
 }
 
 /* Accordion */
 .accordion {
-  @apply bg-white border border-gray-200;
+  @apply bg-content1 border border-divider;
 }
 
 /* Timeline */
 .timeline-line {
-  @apply bg-gray-200;
+  @apply bg-divider;
 }
 
 /* Testimonials */
 .testimonial-card {
-  @apply bg-white shadow-lg;
+  @apply bg-content1 shadow-lg;
 }
 
 /* Case studies */
 .case-study-card {
-  @apply bg-white shadow-lg hover:shadow-xl transition-shadow;
+  @apply bg-content1 shadow-lg hover:shadow-xl transition-shadow;
 }
 
 /* FAQ sections */
 .faq-section {
-  @apply bg-gray-50;
+  @apply bg-content2;
 }
 
 /* Contact form */
 .contact-form {
-  @apply bg-white;
+  @apply bg-content1;
 }
 
 .contact-sidebar {
-  @apply bg-gray-50;
+  @apply bg-content2;
 }

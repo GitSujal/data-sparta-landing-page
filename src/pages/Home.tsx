@@ -4,6 +4,7 @@ import { Hero } from "../components/sections/home/Hero";
 import { ServicesSummary } from "../components/sections/home/ServicesSummary";
 import { AboutSummary } from "../components/sections/home/AboutSummary";
 import { SuccessStoriesSummary } from "../components/sections/home/SuccessStoriesSummary";
+import { AcceleratorPartners } from "../components/sections/home/AcceleratorPartners";
 import { Contact } from "../components/sections/home/Contact";
 
 export function Home() {
@@ -68,6 +69,7 @@ export function Home() {
         <ServicesSummary />
         <AboutSummary />
         <SuccessStoriesSummary />
+        <AcceleratorPartners />
         <Contact />
       </div>
     </>

@@ -5,7 +5,7 @@ import { Logo } from "../shared/Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer className="bg-background border-t border-divider" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -13,7 +13,7 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Logo />
-            <p className="text-sm leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-foreground/60">
               Empowering SMBs with data-driven solutions.
             </p>
             <div className="flex items-center space-x-2">
@@ -21,7 +21,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/data-sparta"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-foreground/60 hover:text-primary transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -29,42 +29,42 @@ export function Footer() {
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">Quick Links</h3>
+              <h3 className="text-sm font-semibold leading-6 text-foreground">Quick Links</h3>
               <ul role="list" className="mt-6 space-y-4">
                 <li>
-                  <Link to="/" className="text-sm leading-6 text-gray-600 hover:text-primary">
+                  <Link to="/" className="text-sm leading-6 text-foreground/60 hover:text-primary">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="text-sm leading-6 text-gray-600 hover:text-primary">
+                  <Link to="/about" className="text-sm leading-6 text-foreground/60 hover:text-primary">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className="text-sm leading-6 text-gray-600 hover:text-primary">
+                  <Link to="/services" className="text-sm leading-6 text-foreground/60 hover:text-primary">
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link to="/success-stories" className="text-sm leading-6 text-gray-600 hover:text-primary">
+                  <Link to="/success-stories" className="text-sm leading-6 text-foreground/60 hover:text-primary">
                     Success Stories
                   </Link>
                 </li>
                 <li>
-                  <Link to="/faq" className="text-sm leading-6 text-gray-600 hover:text-primary">
+                  <Link to="/faq" className="text-sm leading-6 text-foreground/60 hover:text-primary">
                     FAQ
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="mt-10 md:mt-0">
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">Contact Us</h3>
+              <h3 className="text-sm font-semibold leading-6 text-foreground">Contact Us</h3>
               <ul role="list" className="mt-6 space-y-4">
                 <li>
                   <a
                     href="mailto:contact@datasparta.com"
-                    className="text-sm leading-6 text-gray-600 hover:text-primary flex items-center"
+                    className="text-sm leading-6 text-foreground/60 hover:text-primary flex items-center"
                   >
                     <Mail className="h-4 w-4 mr-2" />
                     contact@datasparta.com
@@ -73,14 +73,14 @@ export function Footer() {
                 <li>
                   <a
                     href="tel:+61410677503"
-                    className="text-sm leading-6 text-gray-600 hover:text-primary flex items-center"
+                    className="text-sm leading-6 text-foreground/60 hover:text-primary flex items-center"
                   >
                     <Phone className="h-4 w-4 mr-2" />
                     +61 410 677 503
                   </a>
                 </li>
                 <li>
-                  <div className="text-sm leading-6 text-gray-600 flex items-center">
+                  <div className="text-sm leading-6 text-foreground/60 flex items-center">
                     <MapPin className="h-4 w-4 mr-2" />
                     Perth, Australia
                   </div>
@@ -89,8 +89,8 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-500">
+        <div className="mt-16 border-t border-divider pt-8 sm:mt-20 lg:mt-24">
+          <p className="text-xs leading-5 text-foreground/60">
             &copy; {new Date().getFullYear()} Data Sparta. All rights reserved.
           </p>
         </div>

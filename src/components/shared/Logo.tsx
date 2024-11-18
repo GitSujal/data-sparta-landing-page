@@ -16,7 +16,7 @@ export function Logo({ onClick }: LogoProps) {
         alt="Data Sparta Logo" 
         className="h-10 w-auto"
       />
-      <span className="text-2xl font-bold text-gray-900">Data Sparta</span>
+      <span className="text-2xl font-bold text-foreground">Data Sparta</span>
     </a>
   );
 }

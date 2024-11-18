@@ -2,14 +2,14 @@ import React from "react";
 
 export function ServicesOverview() {
   return (
-    <section id="services-overview" className="py-16 bg-white">
+    <section id="services-overview" className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-3xl font-bold text-foreground">
               Comprehensive Data Solutions for Your Business
             </h2>
-            <p className="mt-6 text-lg text-gray-500">
+            <p className="mt-6 text-lg text-foreground/60">
               At Data Sparta, we offer a comprehensive suite of services designed to empower small and medium-sized businesses with the tools and knowledge needed to harness the power of data. From fully managed data platforms to personalized training programs, our solutions are tailored to meet your unique business needs.
             </p>
           </div>

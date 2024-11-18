@@ -4,11 +4,11 @@ import { Star, ArrowRight } from "lucide-react";
 
 export function SuccessStoriesSummary() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-content2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Success Stories</h2>
-          <p className="mt-4 text-lg text-gray-500">
+          <h2 className="text-3xl font-bold text-foreground">Success Stories</h2>
+          <p className="mt-4 text-lg text-foreground/60">
             See how businesses like yours have transformed with our solutions
           </p>
         </div>
@@ -46,19 +46,19 @@ export function SuccessStoriesSummary() {
 
         {/* Testimonial */}
         <div className="mt-12">
-          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
+          <div className="max-w-3xl mx-auto bg-content1 rounded-lg shadow-lg p-8">
             <div className="flex items-center justify-center mb-6">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-5 w-5 fill-primary text-primary" />
               ))}
             </div>
             <blockquote className="text-center">
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-foreground/60">
                 "Data Sparta transformed how we understand our business. The real-time insights have been invaluable, leading to a 25% increase in sales."
               </p>
               <footer className="mt-4">
-                <p className="text-base font-semibold text-gray-900">Sarah Thompson</p>
-                <p className="text-sm text-gray-500">CEO, SunStyle Eyewear</p>
+                <p className="text-base font-semibold text-foreground">Sarah Thompson</p>
+                <p className="text-sm text-foreground/60">CEO, SunStyle Eyewear</p>
               </footer>
             </blockquote>
           </div>
