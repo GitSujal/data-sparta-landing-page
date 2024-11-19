@@ -10,7 +10,7 @@ export function AcceleratorPartners() {
             Proud member of leading technology accelerator programs
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* NVIDIA Inception */}
           <div className="flex flex-col items-center justify-center p-8 bg-content1 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
             <img
@@ -34,6 +34,24 @@ export function AcceleratorPartners() {
             <h3 className="mt-6 text-xl font-semibold text-foreground">AWS Startup Program</h3>
             <p className="mt-2 text-center text-foreground/60">
               Building scalable solutions with Amazon Web Services' cutting-edge cloud infrastructure
+            </p>
+          </div>
+
+          {/* Microsoft Startup Program */}
+          <div className="flex flex-col items-center justify-center p-8 bg-content1 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <img
+              src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RWEJ0w?ver=a65e"
+              alt="Microsoft Startup Program"
+              className="h-24 object-contain hidden dark:block"
+            />
+            <img
+              src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RWEDnc?ver=9fb4"
+              alt="Microsoft Startup Program"
+              className="h-24 object-contain dark:hidden"
+            />
+            <h3 className="mt-6 text-xl font-semibold text-foreground">Microsoft Startup Program</h3>
+            <p className="mt-2 text-center text-foreground/60">
+              Accelerating growth with Microsoft's enterprise-grade technology and global network
             </p>
           </div>
         </div>
