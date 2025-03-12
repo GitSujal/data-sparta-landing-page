@@ -53,8 +53,8 @@ const trainingAreas = [
     description: "Master the basics of data analysis, statistics, and analytical thinking.",
     icon: BarChart3,
     topics: [
-      "Statistical analysis basics",
       "Data cleaning and preparation",
+      "Statistical analysis basics",
       "Analytical problem-solving",
       "Data visualization principles"
     ]
@@ -64,10 +64,10 @@ const trainingAreas = [
     description: "Get hands-on experience with your organization's preferred analytics tools.",
     icon: Laptop,
     topics: [
-      "Power BI mastery",
       "SQL for data analysis",
-      "Python/R programming",
-      "Custom tool training"
+      "Reporting & Dashboarding",
+      "Custom tool training",
+      "AI Tools & Platforms"
     ]
   },
   {
@@ -94,22 +94,6 @@ const trainingAreas = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "The customized training program from Data Sparta has transformed our team's ability to work with data. We're now making faster, more informed decisions across all departments.",
-    author: "Sarah Chen",
-    role: "Operations Director",
-    company: "TechFlow Solutions",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80"
-  },
-  {
-    quote: "What sets Data Sparta apart is their ability to tailor the training to our specific needs and tools. Our team was productive with the new skills immediately.",
-    author: "Michael Rodriguez",
-    role: "Analytics Manager",
-    company: "RetailPro International",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80"
-  }
-];
 
 export function OrganizationTraining() {
   return (
@@ -243,37 +227,6 @@ export function OrganizationTraining() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 bg-content2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">
-            What Our Clients Say
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-content1 rounded-lg p-8 shadow-lg"
-              >
-                <div className="flex items-center mb-6">
-                  <img
-                    className="h-12 w-12 rounded-full"
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                  />
-                  <div className="ml-4">
-                    <div className="text-foreground font-semibold">{testimonial.author}</div>
-                    <div className="text-foreground/60 text-sm">{testimonial.role}</div>
-                    <div className="text-foreground/60 text-sm">{testimonial.company}</div>
-                  </div>
-                </div>
-                <p className="text-foreground/60 italic">"{testimonial.quote}"</p>
               </div>
             ))}
           </div>
