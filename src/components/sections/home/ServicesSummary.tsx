@@ -19,13 +19,13 @@ const services = [
     title: "Organization Training",
     description: "Empower your team with the skills to drive insights from your data.",
     icon: Users,
-    href: "/services#org-training",
+    href: "/organization-training",
   },
   {
     title: "Individual Training",
     description: "Start your journey to becoming a data analyst with Data Profession Academy.",
     icon: GraduationCap,
-    href: "/services#individual-training",
+    href: "https://dataprofessionacademy.com"
   },
 ];
 

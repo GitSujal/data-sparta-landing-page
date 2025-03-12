@@ -62,8 +62,8 @@ const services = [
       "Flexible scheduling options",
       "Ongoing support and resources",
     ],
-    ctaText: "Customize Training",
-    ctaHref: "/contact",
+    ctaText: "Learn more",
+    ctaHref: "/organization-training",
   },
   {
     id: "individual-training",

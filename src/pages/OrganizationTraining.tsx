@@ -1,99 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  Users, 
-  Target, 
-  TrendingUp, 
-  BookOpen, 
-  CheckCircle, 
-  BarChart3,
-  LineChart,
-  PieChart,
-  Database,
-  Brain,
-  Laptop,
-  Award,
-  ClipboardList,
-  School,
-  UserCheck,
-  Headphones
-} from "lucide-react";
+import { CheckCircle, Users } from "lucide-react";
 import { Button } from "@nextui-org/react";
 import { services } from "../data/services";
+import { benefits, trainingAreas } from "../data/organizationTraining";
+import { trainingPackages } from "../data/trainingPackages";
+import { TechnologyCarousel } from "../components/TechnologyCarousel";
+import { PackageCard } from "../components/sections/training/PackageCard";
+import { ServiceStep } from "../components/ServiceStep";
 
 // Find the organization training service
 const orgTraining = services.find(service => service.id === "org-training");
-
-const benefits = [
-  {
-    title: "Leverage Existing Knowledge",
-    description: "Transform your current workforce into data analytics experts while capitalizing on their deep understanding of your business.",
-    icon: Brain,
-  },
-  {
-    title: "Custom-Tailored Learning",
-    description: "Training programs specifically designed around your organization's tools, data, and business challenges.",
-    icon: Target,
-  },
-  {
-    title: "Immediate Application",
-    description: "Employees learn using your actual business data, ensuring skills can be applied immediately to real challenges.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Cost-Effective Solution",
-    description: "Save on recruitment and onboarding costs while increasing employee retention through valuable upskilling.",
-    icon: Award,
-  },
-];
-
-const trainingAreas = [
-  {
-    title: "Data Analysis Fundamentals",
-    description: "Master the basics of data analysis, statistics, and analytical thinking.",
-    icon: BarChart3,
-    topics: [
-      "Data cleaning and preparation",
-      "Statistical analysis basics",
-      "Analytical problem-solving",
-      "Data visualization principles"
-    ]
-  },
-  {
-    title: "Tool-Specific Training",
-    description: "Get hands-on experience with your organization's preferred analytics tools.",
-    icon: Laptop,
-    topics: [
-      "SQL for data analysis",
-      "Reporting & Dashboarding",
-      "Custom tool training",
-      "AI Tools & Platforms"
-    ]
-  },
-  {
-    title: "Advanced Analytics",
-    description: "Dive deep into advanced analytical methods tailored to your industry.",
-    icon: LineChart,
-    topics: [
-      "Predictive modeling",
-      "Machine learning basics",
-      "Industry-specific analytics",
-      "Advanced visualization"
-    ]
-  },
-  {
-    title: "Data Management",
-    description: "Learn best practices for handling and managing organizational data.",
-    icon: Database,
-    topics: [
-      "Data governance",
-      "Quality assurance",
-      "Security best practices",
-      "Process automation"
-    ]
-  },
-];
-
 
 export function OrganizationTraining() {
   return (
@@ -126,8 +43,55 @@ export function OrganizationTraining() {
         </div>
       </section>
 
-      {/* Value Proposition */}
+      {/* Training Packages */}
       <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground">Training Packages</h2>
+            <p className="mt-4 text-lg text-foreground/60">
+              Choose from our comprehensive training paths designed to elevate your organization's data capabilities
+            </p>
+          </div>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {trainingPackages.map((pkg) => (
+              <PackageCard key={pkg.id} {...pkg} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-primary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white">
+            Ready to Transform Your Team?
+          </h2>
+          <p className="mt-4 text-xl text-white">
+            Schedule a consultation to discuss your organization's training needs and get a customized proposal.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-gray-50"
+              >
+                Schedule Consultation
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="bg-transparent text-white border-white border hover:bg-white/10"
+              >
+                Request Training Proposal
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-content2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-foreground">Why Choose Our Training Solutions?</h2>
@@ -150,45 +114,6 @@ export function OrganizationTraining() {
                 <p className="mt-2 text-foreground/60 text-center">
                   {benefit.description}
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Step by Step Process */}
-      <section className="py-16 bg-content2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground">Our Training Process</h2>
-            <p className="mt-4 text-lg text-foreground/60 max-w-3xl mx-auto">
-              A structured approach to transforming your team's data capabilities
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {orgTraining?.steps.map((step, index) => (
-              <div
-                key={step.title}
-                className="bg-content1 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
-                    <step.icon className="h-6 w-6" />
-                  </div>
-                  <div className="ml-4">
-                    <div className="text-sm font-medium text-primary">Step {index + 1}</div>
-                    <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
-                  </div>
-                </div>
-                <p className="text-foreground/60 mb-4">{step.description}</p>
-                <ul className="space-y-2">
-                  {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mr-2" />
-                      <span className="text-foreground/60">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -233,32 +158,39 @@ export function OrganizationTraining() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white">
-            Ready to Transform Your Team?
-          </h2>
-          <p className="mt-4 text-xl text-white">
-            Schedule a consultation to discuss your organization's training needs and get a customized proposal.
+      {/* Technology Stack Section */}
+      <section className="py-8 bg-content2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-foreground">Comprehensive Technology Coverage</h2>
+            <p className="mt-4 text-lg text-foreground/60 max-w-3xl mx-auto">
+              We provide expert training across a wide range of data technologies and tools. Whatever your tech stack, we've got you covered.
+            </p>
+          </div>
+          <TechnologyCarousel />
+          <p className="text-center mt-4 text-foreground/60">
+            And many more! We adapt to your organization's specific technology needs.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-gray-50"
-              >
-                Schedule Consultation
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-transparent text-white border-white border hover:bg-white/10"
-              >
-                Request Training Proposal
-              </Button>
-            </Link>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center mb-6">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold text-foreground">How It Works</h2>
+            <p className="mt-4 text-lg text-foreground/60 max-w-3xl mx-auto">{orgTraining?.description}</p>
+          </div>
+
+          <div className="space-y-8">
+            {orgTraining?.steps.map((step, stepIndex) => (
+              <ServiceStep key={step.title} step={step} index={stepIndex} />
+            ))}
           </div>
         </div>
       </section>
