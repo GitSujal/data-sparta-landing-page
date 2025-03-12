@@ -11,6 +11,7 @@ import { FAQ } from "../../pages/FAQ";
 import { Careers } from "../../pages/Careers";
 import { Contact } from "../../pages/Contact";
 import { Success } from "../../pages/Success";
+import { OrganizationTraining } from "../../pages/OrganizationTraining";
 
 export function Layout() {
   return (
@@ -26,6 +27,8 @@ export function Layout() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/organization-training" element={<OrganizationTraining />} />
         </Routes>
       </main>
       <Footer />

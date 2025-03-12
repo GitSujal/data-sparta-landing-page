@@ -13,7 +13,7 @@ const navigation = [
     dropdown: [
       { name: "Data Platform", href: "/services#data-platform" },
       { name: "Analytics", href: "/services#analytics" },
-      { name: "Organization Training", href: "/services#org-training" },
+      { name: "Organization Training", href: "/organization-training" },
       { name: "Individual Training", href: "/services#individual-training" },
       { name: "Success Stories", href: "/success-stories" }
     ]
